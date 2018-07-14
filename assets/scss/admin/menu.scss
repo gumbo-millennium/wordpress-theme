@@ -1,0 +1,83 @@
+///
+// Hides menu items outside of the visible spectrum
+//
+// @author Roelof Roos <github@roelof.io>
+// @license MPL-2.0
+///
+
+%menu-invisible-item {
+  &.sortable-placeholder {
+    border-color: #{theme-color('warning')};
+    background-color: #{theme-color-level('warning', -6)};
+  }
+
+  .menu-item-handle {
+    border-color: #{theme-color-level('warning', -3)};
+    background-color: #{theme-color-level('warning', -4)};
+    overflow: visible;
+  }
+
+  // Notice
+  .menu-item-handle::after {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: -215px;
+    width: 200px;
+    padding: 7px;
+    color: #{theme-color-level('warning', 2)};
+    box-sizing: border-box;
+    content: 'Dit element is niet zichtbaar in het gekozen menu!';
+    line-height: 12px;
+  }
+}
+
+%menu-depth-notice {
+  display: block;
+  margin: 5px 0 15px;
+  padding: calc(3px + 0.5em) 14px;
+
+  // Style like info
+  border: 0;
+  border-radius: 3px;
+  border-left: 4px solid #{theme-color-level('info', -4)};
+  background-color: #{color('white')};
+  transition: none 150ms;
+  transition-property: border-left-color, background-color;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.menu.menu--has-header,
+.menu.menu--has-footer,
+.menu.menu--has-footer-legal {
+  .menu-item-depth-2,
+  .menu-item-depth-3,
+  .menu-item-depth-4,
+  .menu-item-depth-5 {
+    @extend %menu-invisible-item;
+  }
+
+  &::before {
+    @extend %menu-depth-notice;
+  }
+
+  &.menu--has-overflow::before {
+    border-left-color: #{theme-color-level('danger', -4)};
+    background-color: #{theme-color-level('danger', -9)};
+  }
+}
+
+.menu.menu--has-header::before {
+  content: 'Dit menu kan tot 1 niveau diep!';
+}
+
+.menu.menu--has-footer,
+.menu.menu--has-footer-legal {
+  .menu-item-depth-1 {
+    @extend %menu-invisible-item;
+  }
+
+  &::before {
+    content: 'Dit menu kan alleen één niveau hebben.';
+  }
+}

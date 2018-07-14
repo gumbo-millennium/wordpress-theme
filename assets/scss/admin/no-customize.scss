@@ -1,0 +1,12 @@
+///
+// Hides customisation menu
+//
+// @author Roelof Roos <github@roelof.io>
+// @license MPL-2.0
+///
+
+.hide-if-no-customize {
+  display: none;
+  visibility: hidden;
+  clip: rect(0, 0);
+}

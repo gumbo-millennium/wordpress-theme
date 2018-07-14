@@ -1,0 +1,14 @@
+///
+// Styling for WordPress editor
+//
+// @author Roelof Roos <github@roelof.io>
+// @license MPL-2.0
+///
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Our styles
+@import "admin/no-customize";
+@import "admin/menu";
