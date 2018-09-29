@@ -18,11 +18,12 @@ gumbo-millennium.zip:
 	zip -r \
 		temp/new.zip \
 		dist/ \
-		README.md \
-		LICENSE.md \
 		functions.php \
 		index.php \
-		screenshot.png
+		LICENSE.md \
+		README.md \
+		screenshot.png \
+		style.css
 
 	# Copy built stylesheet to temporary dir
 	cp style.css temp/style.css
