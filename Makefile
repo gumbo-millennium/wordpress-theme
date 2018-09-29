@@ -22,19 +22,15 @@ gumbo-millennium.zip:
 		index.php \
 		LICENSE.md \
 		README.md \
-		screenshot.png \
-		style.css
+		screenshot.png
 
-	# Copy built stylesheet to temporary dir
-	cp style.css temp/style.css
-
-	# Update version in temporary stylesheet
-	sed -i -r \
+	# Update version and write to temporary stylesheet
+	sed -r \
 		"s/^( \* Version:\s+).+$$/\1$(shell git log -n1 --pretty='%h')/" \
-		temp/style.css
+		style.css > temp/style.css
 
 	# Add versioned stylesheet
-	zip --freshen --junk-paths \
+	zip -u --junk-paths \
 		temp/new.zip \
 		temp/style.css
 
