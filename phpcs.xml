@@ -1,14 +1,16 @@
 <?xml version="1.0"?>
 <ruleset>
-    <!-- Directories -->
-    <file>.</file>
-
-    <!-- Ignore some dependency paths -->
-    <exclude-pattern type="relative">^/vendor/</exclude-pattern>
-    <exclude-pattern type="relative">^/node_modules/</exclude-pattern>
+    <!-- Files -->
+    <file>index.php</file>
+    <file>functions.php</file>
 
     <!-- We just use PSR-2, but as all files have some side effects, we need to ignore them -->
     <rule ref="PSR2">
         <exclude name="PSR1.Files.SideEffects.FoundWithSymbols" />
+    </rule>
+
+    <!-- Ignore side effect on index.php, otherwise don't allow them -->
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+      <exclude-pattern>index.php</exclude-pattern>
     </rule>
 </ruleset>
