@@ -1,14 +1,15 @@
 const mix = require('laravel-mix')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const wrapAnsi = require('wrap-ansi')
 
 // Configure javascript
 mix.js('assets/js/admin.js', 'dist/admin.js')
 
 // Configure SCSS for admin panel and WordPress
 mix
-.sass('assets/scss/admin.scss', 'dist/admin.css')
-.sass('assets/scss/editor.scss', 'dist/editor.css')
-.sass('assets/scss/theme.scss', './style.css')
+  .sass('assets/scss/admin.scss', 'dist/admin.css')
+  .sass('assets/scss/editor.scss', 'dist/editor.css')
+  .sass('assets/scss/theme.scss', './style.css')
 
 // Add source maps if not in production
 if (!mix.inProduction()) {
