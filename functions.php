@@ -45,8 +45,12 @@ class Functions
     */
     protected function setup() : void
     {
-        //Enable post thumbnails for posts and pages, also used in covers
+        // Enable post thumbnails for posts and pages, also used in covers
         add_theme_support('post-thumbnails');
+
+        // Disable custom colours and font sizes in Gutenberg
+        add_theme_support('disable-custom-colors');
+        add_theme_support('disable-custom-font-sizes');
 
         // Default page thumbnails, shown in the following sizes:
         // xs - sm: 50% (max 288px)
@@ -81,9 +85,6 @@ class Functions
             'video',
             'gallery'
         ]);
-
-        // Register the theme style for the WordPress editor
-        add_editor_style(['dist/editor-style.css']);
     }
 
     /**
